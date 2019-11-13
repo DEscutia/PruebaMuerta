@@ -21,13 +21,14 @@
     }
 
   </style>
+  
 </head>
 <body>
   <?php
-    require "header.php";
-    require "main.php";
-    require "footer.php";
-    require "scripts.php";
+    include "header.php";
+    include "main.php";
+    include "footer.php";
+    include "scripts.php";
   ?>
 </body>
 </html>
