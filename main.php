@@ -1,15 +1,15 @@
 <main>
     <div class="container">
         <?php
-            require "quienes_somos.php";
+            include "quienes_somos.php";
             echo "<hr class='my-5'>";
-            require "servicios.php";
+            include "servicios.php";
             echo "<hr class='my-5'>";
-            require "ubicacion.php";
+            include "ubicacion.php";
             echo "<hr class='my-5'>";
-            require "obituarios.php";
+            include "obituarios.php";
             echo "<hr class='my-5'>";
-            require "muestrario.php";
+            include "muestrario.php";
         ?>
     </div>
 </main>
