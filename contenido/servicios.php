@@ -15,7 +15,7 @@
     <!-- Card deck -->
     <div class="card-deck">
         <?php 
-        for($i=0;$i<=3;$i++){
+        for($i=0;$i<3;$i++){
         echo "<div class ='card md-4'>";
         echo "<div class='view overlay'>";
         echo "<img class='card-img-top' src=$img1 alt='...'>";
