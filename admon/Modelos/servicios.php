@@ -4,12 +4,16 @@
 		private $Titulo;
 		private $Descripcion;
         private $Imagen;
-        private $idUsuarios;
+        private $Usuarios_idUsuarios;
 
 		function __construct(){}
 
 		public function getidServicios(){
 		return $this->idServicios;
+		}
+
+		public function setidServicios($idServicios){
+			$this->idServicios=$idServicios;
 		}
 
 		public function getTitulo(){
@@ -37,11 +41,11 @@
         }
         
         public function getidUsuarios(){
-			return $this->idUsuarios;
+			return $this->Usuarios_idUsuarios;
 		}
 
 		public function setidUsuarios($idUsuarios){
-			$this->idUsuarios = $idUsuarios;
+			$this->Usuarios_idUsuarios = $idUsuarios;
 		}
 	}
 ?>

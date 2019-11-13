@@ -1,10 +1,10 @@
 <html>
 	<head>
-		<title>Administrar Libro</title>
+		<title>Administrar Servicios</title>
 	</head>	
 	<body>
 		<header>
-			Bienvenido Administrar Libro
+			Bienvenido Administrar Servicios
 		</header>
 		<table border=1>			
 			<tr>
@@ -15,7 +15,7 @@
 			</tr>
 		</table>
 		<footer>
-			Administrar Libro 2017
+			Administrar Servicios 2019
 		</footer>
 	</body>
 </html>

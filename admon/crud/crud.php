@@ -2,69 +2,56 @@
 // incluye la clase Db
 require_once('conexion.php');
 
-	class CrudLibro{
+	class Crud{
 		// constructor de la clase
 		public function __construct(){}
 
 		// método para insertar, recibe como parámetro un objeto de tipo libro
-		public function insertar($libro){
+		public function insertarServicio($servicio){
 			$db=Db::conectar();
-			$insert=$db->prepare('INSERT INTO libros values(NULL,:nombre,:autor,:anio_edicion)');
-			$insert->bindValue('nombre',$libro->getNombre());
-			$insert->bindValue('autor',$libro->getAutor());
-			$insert->bindValue('anio_edicion',$libro->getAnio_edicion());
+			$insert=$db->prepare('INSERT INTO Servicios values(NULL,:Titulo,:Descripcion,:Imagen,:idUsuarios)');
+			$insert->bindValue('Titulo',$servicio->getTitulo());
+			$insert->bindValue('Descripcion',$servicio->getDescripcion());
+			$insert->bindValue('Imagen',$servicio->getImagen());
+			$insert->bindValue('Usuarios_idUsuarios',$servicio->getidUsuarios());
 			$insert->execute();
 
 		}
 
 		// método para mostrar todos los libros
-		public function mostrar(){
+		public function mostrarServicios(){
 			$db=Db::conectar();
-			$listaLibros=[];
-			$select=$db->query('SELECT * FROM libros');
+			$listaServicios=[];
+			$select=$db->query('SELECT * FROM Servicios');
 
-			foreach($select->fetchAll() as $libro){
-				$myLibro= new Libro();
-				$myLibro->setId($libro['id']);
-				$myLibro->setNombre($libro['nombre']);
-				$myLibro->setAutor($libro['autor']);
-				$myLibro->setAnio_edicion($libro['anio_edicion']);
-				$listaLibros[]=$myLibro;
+			foreach($select->fetchAll() as $servicio){
+				$myServicio= new Servicio();
+				$myServicio->setidServicios($servicio['idServicios']);
+				$myServicio->setTitulo($servicio['Titulo']);
+				$myServicio->setDescripcion($servicio['Descripcion']);
+				$myServicio->setImagen($servicio['Imagen']);
+				$myServicio->setidUsuarios($servicio['Usuarios_idUsuarios']);
+				$listaServicios[]=$myServicio;
 			}
-			return $listaLibros;
+			return $listaServicios;
 		}
 
 		// método para eliminar un libro, recibe como parámetro el id del libro
-		public function eliminar($id){
+		public function eliminarServicioByID($id){
 			$db=Db::conectar();
-			$eliminar=$db->prepare('DELETE FROM libros WHERE ID=:id');
-			$eliminar->bindValue('id',$id);
+			$eliminar=$db->prepare('DELETE FROM Servicios WHERE idServicios=:id');
+			$eliminar->bindValue('idServicios',$id);
 			$eliminar->execute();
 		}
 
-		// método para buscar un libro, recibe como parámetro el id del libro
-		public function obtenerLibro($id){
-			$db=Db::conectar();
-			$select=$db->prepare('SELECT * FROM libros WHERE ID=:id');
-			$select->bindValue('id',$id);
-			$select->execute();
-			$libro=$select->fetch();
-			$myLibro= new Libro();
-			$myLibro->setId($libro['id']);
-			$myLibro->setNombre($libro['nombre']);
-			$myLibro->setAutor($libro['autor']);
-			$myLibro->setAnio_edicion($libro['anio_edicion']);
-			return $myLibro;
-		}
-
 		// método para actualizar un libro, recibe como parámetro el libro
-		public function actualizar($libro){
+		public function actualizar($servicio){
 			$db=Db::conectar();
-			$actualizar=$db->prepare('UPDATE libros SET nombre=:nombre, autor=:autor,anio_edicion=:anio  WHERE ID=:id');
-			$actualizar->bindValue('id',$libro->getId());
-			$actualizar->bindValue('nombre',$libro->getNombre());
-			$actualizar->bindValue('autor',$libro->getAutor());
-			$actualizar->bindValue('anio',$libro->getAnio_edicion());
+			$actualizar=$db->prepare('UPDATE Servicios SET Titulo=:Titulo, Descripcion=:Descripcion,Imagen=:Imagen  WHERE idServicios=:idServicios');
+			$actualizar->bindValue('idServicios',$servicio->getidServicios());
+			$actualizar->bindValue('Titulo',$servicio->getTitulo());
+			$actualizar->bindValue('Descripcion',$servicio->getDescripcion());
+			$actualizar->bindValue('Imagen',$servicio->getImagen());
 			$actualizar->execute();
 		}
 	}

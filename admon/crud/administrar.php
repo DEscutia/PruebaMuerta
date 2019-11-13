@@ -1,30 +1,29 @@
 <?php
 //incluye la clase Libro y CrudLibro
-require_once('crud_libro.php');
-require_once('libro.php');
+require_once('crud.php');
+require_once('servicios.php');
 
-$crud= new CrudLibro();
-$libro= new Libro();
+$crud= new Crud();
+$servicio= new Servicio();
 
 	// si el elemento insertar no viene nulo llama al crud e inserta un libro
 	if (isset($_POST['insertar'])) {
-		$libro->setNombre($_POST['nombre']);
-		$libro->setAutor($_POST['autor']);
-		$libro->setAnio_edicion($_POST['edicion']);
+		$servicio->setTitulo($_POST['Titulo']);
+		$servicio->setDescripcion($_POST['Descripcion']);
+		$servicio->setImagen($_POST['Imagen']);
 		//llama a la función insertar definida en el crud
-		$crud->insertar($libro);
+		$crud->insertarServicio($servicio);
 		header('Location: index.php');
 	// si el elemento de la vista con nombre actualizar no viene nulo, llama al crud y actualiza el libro
 	}elseif(isset($_POST['actualizar'])){
-		$libro->setId($_POST['id']);
-		$libro->setNombre($_POST['nombre']);
-		$libro->setAutor($_POST['autor']);
-		$libro->setAnio_edicion($_POST['edicion']);
-		$crud->actualizar($libro);
+		$servicio->setTitulo($_POST['Titulo']);
+		$servicio->setDescripcion($_POST['Descripcion']);
+		$servicio->setImagen($_POST['Imagen']);
+		$crud->actualizar($servicio);
 		header('Location: index.php');
 	// si la variable accion enviada por GET es == 'e' llama al crud y elimina un libro
 	}elseif ($_GET['accion']=='e') {
-		$crud->eliminar($_GET['id']);
+		$crud->eliminarServicioByID($_GET['idServicios']);
 		header('Location: index.php');		
 	// si la variable accion enviada por GET es == 'a', envía a la página actualizar.php 
 	}elseif($_GET['accion']=='a'){
