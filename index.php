@@ -25,9 +25,9 @@
 </head>
 <body>
   <?php
-    include "header.php";
+    include "parciales/header.php";
     include "main.php";
-    include "footer.php";
+    include "parciales/footer.php";
     include "scripts.php";
   ?>
 </body>

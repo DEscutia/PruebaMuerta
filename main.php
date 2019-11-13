@@ -1,15 +1,15 @@
 <main>
     <div class="container">
         <?php
-            include "quienes_somos.php";
+            include "contenido/quienes_somos.php";
             echo "<hr class='my-5'>";
-            include "servicios.php";
+            include "contenido/servicios.php";
             echo "<hr class='my-5'>";
-            include "ubicacion.php";
+            include "contenido/ubicacion.php";
             echo "<hr class='my-5'>";
-            include "obituarios.php";
+            include "contenido/obituarios.php";
             echo "<hr class='my-5'>";
-            include "muestrario.php";
+            include "contenido/muestrario.php";
         ?>
     </div>
 </main>
