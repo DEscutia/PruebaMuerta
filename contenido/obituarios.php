@@ -24,103 +24,74 @@
 <div class="carousel-inner" role="listbox">
 
   <!--First slide-->
+   <!--Cada slide tiene que ser de 3 tarjetas-->
   <div class="carousel-item active">
   <div class="row">
-    <div class="col-md-4 d-md-inline-block" >
-      <div class="card mb-2">
-        <img class="card-img-top"
-          src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
-          alt="Card image cap">
-        <div class="card-body">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-            card's content.</p>
-          <a class="btn btn-primary">Button</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 d-md-inline-block">
-      <div class="card mb-2">
-        <img class="card-img-top"
-          src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg"
-          alt="Card image cap">
-        <div class="card-body">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-            card's content.</p>
-          <a class="btn btn-primary">Button</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 d-md-inline-block" >
-      <div class="card mb-2">
-        <img class="card-img-top"
-          src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg"
-          alt="Card image cap">
-        <div class="card-body">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-            card's content.</p>
-          <a class="btn btn-primary">Button</a>
-        </div>
-      </div>
-    </div>
-    
+    <?php
+  
+    $uris = array("https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
+                  ,"https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg"
+                  ,"https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg");
+    $titulos= array("Titulo 1",
+                    "Titulo 2",
+                    "Titulo 3");
+    $textos=array("Texto 1",
+                  "Texto 2",
+                  "Texto 3");
+for($i=0;$i<3;$i=$i+1){
+  echo "<div class='col-md-4 d-md-inline-block'>";
+  echo "<div class='card mb-2'>";
+   echo "<img class='card-img-top'
+      src=
+      ".$uris[$i]."
+      alt='Card image cap'>";
+    echo "<div class='card-body'> ";
+     echo" <h4 class='card-title'>".$titulos[$i]."</h4>";
+     echo "<p class='card-text'>".$textos[$i]."</p>";
+    echo "</div>";
+ echo "</div>";
+echo"</div>";
+ }
+    ?>
     </div>
   </div>
-  <!--/.First slide-->
+  <!--/.Primer slide con el ITEM ACTIVO-->
 
-  <!--Second slide-->
-  <div class="carousel-item">
-  <div class="row">
-    <div class="col-md-4 d-md-inline-block" >
-      <div class="card mb-2">
-        <img class="card-img-top"
-          src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Card image cap">
-        <div class="card-body">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-            card's content.</p>
-          <a class="btn btn-primary">Button</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 d-md-inline-block">
-      <div class="card mb-2">
-        <img class="card-img-top"
-          src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(47).jpg" alt="Card image cap">
-        <div class="card-body">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-            card's content.</p>
-          <a class="btn btn-primary">Button</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 d-md-inline-block">
-      <div class="card mb-2">
-        <img class="card-img-top"
-          src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(48).jpg" alt="Card image cap">
-        <div class="card-body">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-            card's content.</p>
-          <a class="btn btn-primary">Button</a>
-        </div>
-      </div>
-    </div>
-
-    </div>
-  </div>
-  <!--/.Second slide-->
-
+  <!--Codigo para agregar cualquier otro slide pero sin el ITEM ACTIVO-->
+  <?php
+  for($j=0;$j<3;$j=$j+1){
+  echo "<div class='carousel-item'>";
+  echo "<div class='row'>";
+    $uris = array("https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
+                  ,"https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg"
+                  ,"https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg");
+    $titulos= array("Titulo ".$j,
+                    "Titulo ".$j,
+                    "Titulo ".$j);
+    $textos=array("Texto 1",
+                  "Texto 2",
+                  "Texto 3");
+for($i=0;$i<3;$i=$i+1){
+  echo "<div class='col-md-4 d-md-inline-block'>";
+  echo "<div class='card mb-2'>";
+   echo "<img class='card-img-top'
+      src=
+      ".$uris[$i]."
+      alt='Card image cap'>";
+    echo "<div class='card-body'> ";
+     echo" <h4 class='card-title'>".$titulos[$i]."</h4>";
+     echo "<p class='card-text'>".$textos[$i]."</p>";
+    echo "</div>";
+ echo "</div>";
+echo"</div>";
+ }
+ echo"</div>";
+ echo"</div>";
+}
+    ?>
+  <!--/.otros slides-->
 </div>
 <!--/.Slides-->
-
 </div>
 <!--/.Carousel Wrapper-->
 </section>
