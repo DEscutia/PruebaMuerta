@@ -1,5 +1,4 @@
 <?php
-session_start();
 // incluye la clase Db
 require_once('conexion.php');
 
@@ -9,6 +8,7 @@ require_once('conexion.php');
 
 		// método para insertar, recibe como parámetro un objeto de tipo libro
 		public function insertarServicio($servicio){
+			session_start();
 			echo $_SESSION['id'];
 			$db=Db::conectar();
 			$insert=$db->prepare('INSERT INTO Servicios values(NULL,:Titulo,:Descripcion,:Imagen,:Usuarios_idUsuarios)');
