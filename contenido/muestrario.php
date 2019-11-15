@@ -1,86 +1,36 @@
 <section>
     <a name="muestrario"><h3 class="h3 text-center mb-5">Muestrario</h3></a>
-    <!-- Card deck -->
-<div class="card-deck">
+    <div class="container">
+        <div class="row mt-5 mb-4">           
+        <?php
+          $uris = array(
+           "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
+          ,"https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg"
+          ,"https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg"
+          ,"https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg");
+          $titulos= array(
+            "Titulo 1",
+            "Titulo 2",
+            "Titulo 3",
+            "Titulo 4");
+          $descripcion=array(
+          "Descripcion 1",
+          "Descripcion 2",
+          "Descripcion 3",
+          "Descripcion 4");
 
-<!-- Card -->
-<div class="card mb-4">
+        for($i=0;$i<4;$i++){
+          echo" <div class='col-md-4 mb-5'>";
+               echo" <div class='card'>";
+                  echo"<img src=".$uris[$i]." alt='imagen'card-img-top'>";
+                   echo "<div class='card-body'>";
+                      echo "<H5 class='card-title'>".$titulos[$i]."</H5>";
+                        echo"<p>".$descripcion[$i]."</p>";
+                    echo"</div>";
+                  echo"</div>";
+              echo"</div>";
 
-  <!--Card image-->
-  <div class="view overlay">
-    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
-    <a href="#!">
-      <div class="mask rgba-white-slight"></div>
-    </a>
-  </div>
-
-  <!--Card content-->
-  <div class="card-body">
-
-    <!--Title-->
-    <h4 class="card-title">Card title</h4>
-    <!--Text-->
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-    <button type="button" class="btn btn-light-blue btn-md">Read more</button>
-
-  </div>
-
-</div>
-<!-- Card -->
-
-<!-- Card -->
-<div class="card mb-4">
-
-  <!--Card image-->
-  <div class="view overlay">
-    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/14.jpg" alt="Card image cap">
-    <a href="#!">
-      <div class="mask rgba-white-slight"></div>
-    </a>
-  </div>
-
-  <!--Card content-->
-  <div class="card-body">
-
-    <!--Title-->
-    <h4 class="card-title">Card title</h4>
-    <!--Text-->
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-    <button type="button" class="btn btn-light-blue btn-md">Read more</button>
-
-  </div>
-
-</div>
-<!-- Card -->
-
-<!-- Card -->
-<div class="card mb-4">
-
-  <!--Card image-->
-  <div class="view overlay">
-    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg" alt="Card image cap">
-    <a href="#!">
-      <div class="mask rgba-white-slight"></div>
-    </a>
-  </div>
-
-  <!--Card content-->
-  <div class="card-body">
-
-    <!--Title-->
-    <h4 class="card-title">Card title</h4>
-    <!--Text-->
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-    <button type="button" class="btn btn-light-blue btn-md">Read more</button>
-
-  </div>
-
-</div>
-<!-- Card -->
-
-</div>
-<!-- Card deck -->
+        } ?>
+        </div>
+    </div>
 </section>
