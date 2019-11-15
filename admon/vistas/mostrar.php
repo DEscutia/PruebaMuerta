@@ -31,7 +31,7 @@ $listaservicios=$crud->mostrarServicios();
 				<td><?php echo $servicio->getDescripcion() ?></td>
 				<td>
 				<?php
-  					echo "<img src='../img/".$servicio->getImagen()."' >";
+  					echo "<img src='../img/Servicios/".$servicio->getImagen()."' >";
 				?>
 				</td>
 				<td><a href="actualizar.php?idServicios=<?php echo $servicio->getidServicios()?>&accion=a">Actualizar</a> </td>

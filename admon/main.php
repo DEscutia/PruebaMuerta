@@ -17,6 +17,11 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout') {
     echo "<div class='alert alert-success' role='alert'>";
     echo "<strong>¡Registro correcto!</strong> Registraste correctamente un Usuario.";
     echo "</div>";
+}if(isset($_GET['msg'])){
+    echo "";
+    echo "<div class='alert alert-info' role='alert'>";
+    echo "<strong>¡Atencion!</strong>".$_GET['msg'];
+    echo "</div>";
 }
 ?>
 <!DOCTYPE html>

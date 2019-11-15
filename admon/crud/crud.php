@@ -106,5 +106,6 @@ require_once('conexion.php');
 			$actualizar->bindValue('Imagen',$servicio->getImagen());
 			$actualizar->execute();
 		}
+		
 	}
 ?>
