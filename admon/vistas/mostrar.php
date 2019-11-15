@@ -7,13 +7,16 @@ $servicio= new Servicio();
 //obtiene todos los libros con el método mostrar de la clase crud
 $listaservicios=$crud->mostrarServicios();
 ?>
-
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Mostrar servicio</title>
 </head>
 <body>
-	<table border=1>
+<table border=1>
 		<head>
 			<td>Titulo</td>
 			<td>Descripcion</td>
@@ -27,8 +30,9 @@ $listaservicios=$crud->mostrarServicios();
 				<td><?php echo $servicio->getTitulo() ?></td>
 				<td><?php echo $servicio->getDescripcion() ?></td>
 				<td>
-				<img src="../../img/Servicios/logo.jpg"/>
-				<img src=<?php echo $servicio->getImagen()?>/>
+				<?php
+  					echo "<img src='../img/".$servicio->getImagen()."' >";
+				?>
 				</td>
 				<td><a href="actualizar.php?idServicios=<?php echo $servicio->getidServicios()?>&accion=a">Actualizar</a> </td>
 				<td><a href="administrar.php?idServicios=<?php echo $servicio->getidServicios()?>&accion=e">Eliminar</a>   </td>
@@ -36,6 +40,6 @@ $listaservicios=$crud->mostrarServicios();
 			<?php }?>
 		</body>
 	</table>
-	<a href="index.php">Volver</a>
+	<a href="../main.php">Volver</a>
 </body>
 </html>

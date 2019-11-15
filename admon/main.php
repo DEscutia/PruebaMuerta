@@ -3,6 +3,7 @@ session_start();
 if(isset($_GET['action']) && $_GET['action'] == 'logout') {
     unset($_SESSION['ena']);
     unset($_SESSION['username']);
+    unset($_SESSION['id']);
     header('location:index.php');
 }else if(!isset($_SESSION['ena'])){
     header('location:index.php');
@@ -100,9 +101,12 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout') {
           <span>Paginas</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">Contenido:</h6>
-          <a class="dropdown-item" href="login.html">Servicios</a>
+          <h6 class="dropdown-header">Servicios:</h6>
+          <a class="dropdown-item" href="vistas/ingresar.php">Insertar Servicios</a>
+          <a class="dropdown-item" href="vistas/mostrar.php">Ver los servicios</a>
+          <h6 class="dropdown-header">Obituarios:</h6>
           <a class="dropdown-item" href="register.html">Obituarios</a>
+          <h6 class="dropdown-header">Ataudes:</h6>
           <a class="dropdown-item" href="forgot-password.html">Ataudes</a>
           <div class="dropdown-divider"></div>
           <h6 class="dropdown-header">Otras paginas:</h6>

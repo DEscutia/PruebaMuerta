@@ -14,6 +14,7 @@ if(isset($_POST['buttonLogin'])) {
         if (password_verify($_POST['password'], $account->Contrasenia)){
           $_SESSION['ena']="true";
           $_SESSION['username']=$account->NombrUsuario;
+          $_SESSION['id']=$account->idUsuarios;
           header('location:main.php');
         } else {
           $error = '¡Credenciales invalidas!';
