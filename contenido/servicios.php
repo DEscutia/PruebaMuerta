@@ -13,7 +13,7 @@
         foreach ($listaServicios as $servicio) {
             echo "<div class ='card md-4'>";
             echo "<div class='view overlay'>";
-            echo "<img class='card-img-top' src='admon/img/Servicios/".$servicio->getImagen()."' alt='...'>";
+            echo "<img class='card-img-top' src='admon/img/Servicios/".$servicio->getImagen()."' height=400 weight=400 alt='...'>";
             echo "</div>";
             echo "<div class='card-body'";
             echo "<h4 class='card-title'>".$servicio->getTitulo()."</h4>"; 

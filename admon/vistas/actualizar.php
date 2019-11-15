@@ -16,25 +16,20 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/PruebaMuerta/admon/Modelos/servicios.ph
 	<title>Document</title>
 </head>
 <body>
-<form action='administrar.php' method='post'>
-	<table>
-		<tr>
-			<input type='hidden' name='idServicios' value='<?php echo $Servicio->getidServicios()?>'>
-			<td>Titulo:</td>
-			<td> <input type='text' name='Titulo' value='<?php echo $Servicio->getTitulo()?>'></td>
-		</tr>
-		<tr>
-			<td>Descripcion:</td>
-			<td><input type='text' name='Descripcion' value='<?php echo $Servicio->getDescripcion()?>' ></td>
-		</tr>
-		<tr>
-			<td>Imagen:</td>
-			<td><a value='<?php echo $Servicio->geImagen() ?>'></td>
-		</tr>
-	</table>
-	<input type='hidden' name='actualizar' value='actualizar'>
-	<input type='submit' value='Guardar'>
-	<a href="index.php">Volver</a>
+
+<form action="../crud/administrar.php" method="POST">
+<input type="text" name="id" value='<?php echo $Servicio->getidServicios()?>'>
+<h6>Titulo:</h6>
+<input type="text" name="Titulo" value='<?php echo $Servicio->getTitulo()?>'>
+<h6>Descripcion:</h6>
+<input type="text" name="Descripcion" value='<?php echo $Servicio->getDescripcion()?>' >
+<h6>Imagen:</h6>
+<input type="text" name="Imagen" value='<?php echo $Servicio->getImagen() ?>'>
+
+<br>
+<button type="submit" value="Guardar"></button>
+<a href="index.php">Volver</a>
+<input type="hidden" name="actualizar" value="actualizar">
 </form>
 </body>
 </html>

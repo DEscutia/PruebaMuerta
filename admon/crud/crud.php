@@ -92,12 +92,12 @@ require_once('conexion.php');
 		public function eliminarServicioByID($id){
 			$db=Db::conectar();
 			$eliminar=$db->prepare('DELETE FROM Servicios WHERE idServicios=:id');
-			$eliminar->bindValue('idServicios',$id);
+			$eliminar->bindValue('id',$id);
 			$eliminar->execute();
 		}
 
 		// método para actualizar un libro, recibe como parámetro el libro
-		public function actualizar($servicio){
+		public function actualizarServicio($servicio){
 			$db=Db::conectar();
 			$actualizar=$db->prepare('UPDATE Servicios SET Titulo=:Titulo, Descripcion=:Descripcion,Imagen=:Imagen  WHERE idServicios=:idServicios');
 			$actualizar->bindValue('idServicios',$servicio->getidServicios());
