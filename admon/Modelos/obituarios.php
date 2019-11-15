@@ -48,4 +48,3 @@
 			$this->idUsuarios = $idUsuarios;
 		}
 	}
-?>

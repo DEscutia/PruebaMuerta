@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,16 +20,17 @@
         background: #1C2331 !important;
       }
     }
-
   </style>
-  
+
 </head>
+
 <body>
   <?php
-    include "parciales/header.php";
-    include "main.php";
-    include "parciales/footer.php";
-    include "scripts.php";
+  include "parciales/header.php";
+  include "main.php";
+  include "parciales/footer.php";
+  include "scripts.php";
   ?>
 </body>
+
 </html>

@@ -1,10 +1,10 @@
 <?php
 session_start();
-if(!isset($_SESSION['ena'])){
+if (!isset($_SESSION['ena'])) {
     header('location:index.php');
 }
 require 'crud/conexion.php';
-$conn=Db::conectar();
+$conn = Db::conectar();
 $stmt = $conn->prepare('select * from Usuarios where NombrUsuario = :username');
 $stmt->bindValue('username', $_SESSION['username']);
 $stmt->execute();
@@ -13,19 +13,20 @@ $id = $account->idUsuarios;
 $user = $account->NombrUsuario;
 $nom = $account->Nombre;
 
-if(isset($_POST['buttonSave'])) {
+if (isset($_POST['buttonSave'])) {
     $stmt = $conn->prepare('update Usuarios set Contrasenia = :password,
     Nombre = :fullName, NombrUsuario = :username where idUsuarios = :id');
-	$stmt->bindValue('username', $_POST['username']);
-	$stmt->bindValue('password', $_POST['password'] == '' ? $account->Contrasenia : password_hash($_POST['password'], PASSWORD_BCRYPT));
-	$stmt->bindValue('fullName', $_POST['fullName']);
+    $stmt->bindValue('username', $_POST['username']);
+    $stmt->bindValue('password', $_POST['password'] == '' ? $account->Contrasenia : password_hash($_POST['password'], PASSWORD_BCRYPT));
+    $stmt->bindValue('fullName', $_POST['fullName']);
     $stmt->bindValue('id', $_POST['id']);
-	$stmt->execute();
-	header('location:main.php?action=succesUpdate');
+    $stmt->execute();
+    header('location:main.php?action=succesUpdate');
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,28 +37,27 @@ if(isset($_POST['buttonSave'])) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
+
 <body>
-<form method="post">
+    <form method="post">
         <table>
             <tr>
                 <td>Id</td>
                 <td>
                     <?php echo $id; ?>
-                    <input type="hidden" name="id"
-                        value="<?php echo $id; ?>">
+                    <input type="hidden" name="id" value="<?php echo $id; ?>">
                 </td>
             </tr>
             <tr>
                 <td>Nombre de usuario:</td>
                 <td>
-                    <input type="text" name="username"
-                        value="<?php echo $user; ?>">
+                    <input type="text" name="username" value="<?php echo $user; ?>">
                 </td>
             </tr>
             <tr>
                 <td>Contraseña:</td>
                 <td>
-                    <input type="password" name="password" >
+                    <input type="password" name="password">
                 </td>
             </tr>
             <tr>
@@ -75,4 +75,5 @@ if(isset($_POST['buttonSave'])) {
             </tr>
         </table>
 </body>
+
 </html>

@@ -1,31 +1,34 @@
 <?php
 session_start();
-if(isset($_GET['action']) && $_GET['action'] == 'logout') {
-    unset($_SESSION['ena']);
-    unset($_SESSION['username']);
-    unset($_SESSION['id']);
-    header('location:index.php');
-}else if(!isset($_SESSION['ena'])){
-    header('location:index.php');
-}else if(isset($_GET['action']) && $_GET['action'] == 'succesUpdate'){
-    echo "";
-    echo "<div class='alert alert-success' role='alert'>";
-    echo "<strong>¡Actualizacion correcta!</strong> Actualizaste correctamente tu usuario.";
-    echo "</div>";
-} if(isset($_GET['action']) && $_GET['action'] == 'succesRegister'){
-    echo "";
-    echo "<div class='alert alert-success' role='alert'>";
-    echo "<strong>¡Registro correcto!</strong> Registraste correctamente un Usuario.";
-    echo "</div>";
-}if(isset($_GET['msg'])){
-    echo "";
-    echo "<div class='alert alert-info' role='alert'>";
-    echo "<strong>¡Atencion!</strong>".$_GET['msg'];
-    echo "</div>";
+if (isset($_GET['action']) && $_GET['action'] == 'logout') {
+  unset($_SESSION['ena']);
+  unset($_SESSION['username']);
+  unset($_SESSION['id']);
+  header('location:index.php');
+} else if (!isset($_SESSION['ena'])) {
+  header('location:index.php');
+} else if (isset($_GET['action']) && $_GET['action'] == 'succesUpdate') {
+  echo "";
+  echo "<div class='alert alert-success' role='alert'>";
+  echo "<strong>¡Actualizacion correcta!</strong> Actualizaste correctamente tu usuario.";
+  echo "</div>";
+}
+if (isset($_GET['action']) && $_GET['action'] == 'succesRegister') {
+  echo "";
+  echo "<div class='alert alert-success' role='alert'>";
+  echo "<strong>¡Registro correcto!</strong> Registraste correctamente un Usuario.";
+  echo "</div>";
+}
+if (isset($_GET['msg'])) {
+  echo "";
+  echo "<div class='alert alert-info' role='alert'>";
+  echo "<strong>¡Atencion!</strong>" . $_GET['msg'];
+  echo "</div>";
 }
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,6 +43,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout') {
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
 </head>
+
 <body id="page-top">
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
     <a class="navbar-brand mr-1" href="index.php">Consola de Administracion de contenido</a>
@@ -124,7 +128,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout') {
           <span>Registrar usuario</span></a>
       </li>
       <li class="nav-item">
-        <a href="tables.html"class="nav-link  dropdown" data-toggle="modal" data-target="#logoutModal">
+        <a href="tables.html" class="nav-link  dropdown" data-toggle="modal" data-target="#logoutModal">
           <i class="fas fa-fw fa-table"></i>
           <span>Salir</span></a>
       </li>
@@ -256,4 +260,5 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout') {
   <script src="js/demo/datatables-demo.js"></script>
   <script src="js/demo/chart-area-demo.js"></script>
 </body>
+
 </html>

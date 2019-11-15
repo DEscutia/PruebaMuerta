@@ -7,5 +7,5 @@
 			self::$conexion= new PDO('mysql:host=localhost;dbname=funerales_i','web','Macwin32',$pdo_options);
 			return self::$conexion;
 		}		
-	} 
+	}
 ?>

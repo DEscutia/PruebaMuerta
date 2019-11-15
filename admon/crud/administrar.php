@@ -30,4 +30,3 @@ $servicio= new Servicio();
 	}elseif($_GET['accion']=='a'){
 		header('Location: actualizar.php');
 	}
-?>
