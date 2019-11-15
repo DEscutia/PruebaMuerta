@@ -19,9 +19,9 @@ USE `Funerales_I` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Funerales_I`.`Usuarios` (
   `idUsuarios` INT NOT NULL AUTO_INCREMENT,
-  `Nombre` VARCHAR(45) NOT NULL,
-  `NombrUsuario` VARCHAR(45) NOT NULL,
-  `Contraseña` VARCHAR(45) NOT NULL,
+  `Nombre` varchar(250) NOT NULL,
+  `NombrUsuario` varchar(250) NOT NULL,
+  `Contrasenia` varchar(250) NOT NULL,
   PRIMARY KEY (`idUsuarios`))
 ENGINE = InnoDB;
 

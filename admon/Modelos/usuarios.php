@@ -7,6 +7,10 @@
 
 		function __construct(){}
 
+		public function setidUsuarios($idUsuarios){
+			$this->idUsuarios=$idUsuarios;
+		}
+
 		public function getidUsuarios(){
 		return $this->idUsuarios;
 		}
@@ -16,7 +20,7 @@
 		}
 
 		public function setNombre($Nombre){
-			$this->autor = $Nombre;
+			$this->Nombre = $Nombre;
 		}
 
 		public function getNombrUsuario(){

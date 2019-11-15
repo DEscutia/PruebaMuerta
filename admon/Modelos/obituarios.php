@@ -8,6 +8,10 @@
 
 		function __construct(){}
 
+		public function setidObituarios($idObituarios){
+			$this->idObituarios = $idObituarios;
+		}
+
 		public function getidObituarios(){
 		return $this->idObituarios;
 		}
@@ -17,7 +21,7 @@
 		}
 
 		public function setTitulo($Titulo){
-			$this->autor = $Titulo;
+			$this->Titulo = $Titulo;
 		}
 
 		public function getDescripcion(){

@@ -21,7 +21,7 @@
 		}
 
 		public function setTitulo($Titulo){
-			$this->autor = $Titulo;
+			$this->Titulo = $Titulo;
 		}
 
 		public function getDescripcion(){

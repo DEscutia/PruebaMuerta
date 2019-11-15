@@ -9,6 +9,10 @@
 
 		function __construct(){}
 
+		public function setidAtaudes($idAtaudes){
+			$this->idAtaudes=$idAtaudes;
+		}
+
 		public function getidAtaudes(){
 		return $this->idAtaudes;
 		}
@@ -18,7 +22,7 @@
 		}
 
 		public function setTitulo($Titulo){
-			$this->autor = $Titulo;
+			$this->Titulo = $Titulo;
 		}
 
 		public function getDescripcion(){

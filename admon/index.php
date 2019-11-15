@@ -1,3 +1,24 @@
+<?php
+session_start();
+require 'crud/conexion.php';
+$conn=Db::conectar();
+if(isset($_POST['buttonLogin'])) {
+    $stmt = $conn->prepare('select * from Usuarios where NombrUsuario = :username');
+	$stmt->bindValue('username', $_POST['username']);
+	$stmt->execute();
+	$account = $stmt->fetch(PDO::FETCH_OBJ);
+    if($account != NULL) {
+        if (password_verify($_POST['password'], $account->Contrasenia)){
+          $_SESSION['username'] = $_POST['username'];
+          header('location:main.php');
+        } else {
+          $error = '¡Credenciales invalidas!';
+        }
+    } else {
+        $error = '¡Credenciales invalidas!';
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -158,14 +179,21 @@ body {
             <img src="img/logo.jpg" height="50">
             </div>
             <h5 class="card-title text-center">Entrar</h5>
-            <form class="form-signin">
+            <form class="form-signin"method="post">
+            <?php 
+                  if(isset($error)){
+                    echo "<div class='alert alert-danger' role='alert'>";
+                    echo "  <strong>¡Algo salio mal! </strong>".$error;
+                    echo "</div>";
+                  }
+            ?>
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Direccion de Email" required autofocus>
+                <input type="text" id="inputEmail" class="form-control" placeholder="Direccion de Email" name="username" required autofocus>
                 <label for="inputEmail">Direccion de Email</label>
               </div>
 
               <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" name="password" required>
                 <label for="inputPassword">Contraseña</label>
               </div>
 
@@ -173,7 +201,7 @@ body {
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                 <label class="custom-control-label" for="customCheck1">Recordar contraseña</label>
               </div>
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="buttonLogin" href="main.php">Entrar</button>
               <hr class="my-4">
               <p class="text-center">SDA Developers</p>
               <p class="text-center">INSTITUTO TECNOLOGICO SUPERIOR DEL SUR DE GUANAJUATO</p>
