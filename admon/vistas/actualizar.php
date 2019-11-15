@@ -1,7 +1,7 @@
 <?php
 //incluye la clase Libro y CrudLibro
-require_once($_SERVER['DOCUMENT_ROOT'].'/apps/PruebaMuerta/admon/crud/crud.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/apps/PruebaMuerta/admon/Modelos/servicios.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/PruebaMuerta/admon/crud/crud.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/PruebaMuerta/admon/Modelos/servicios.php');
 	$crud= new Crud();
 	$Servicio=new Servicio();
 	//busca el libro utilizando el id, que es enviado por GET desde la vista mostrar.php
