@@ -1,11 +1,11 @@
 <?php
 //incluye la clase Libro y CrudLibro
-require_once('crud.php');
-require_once('servicios.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/apps/PruebaMuerta/admon/crud/crud.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/apps/PruebaMuerta/admon/Modelos/servicios.php');
 $crud=new Crud();
 $servicio= new Servicio();
 //obtiene todos los libros con el método mostrar de la clase crud
-$listaLibros=$crud->mostrar();
+$listaservicios=$crud->mostrarServicios();
 ?>
 
 <html>
@@ -26,9 +26,12 @@ $listaLibros=$crud->mostrar();
 			<tr>
 				<td><?php echo $servicio->getTitulo() ?></td>
 				<td><?php echo $servicio->getDescripcion() ?></td>
-				<td><?php echo $servicio->getImagen()?> </td>
-				<td><a href="actualizar.php?idServicios=<?php echo $servicio->getId()?>&accion=a">Actualizar</a> </td>
-				<td><a href="administrar.php?idServicios=<?php echo $servicio->getId()?>&accion=e">Eliminar</a>   </td>
+				<td>
+				<img src="../../img/Servicios/logo.jpg"/>
+				<img src=<?php echo $servicio->getImagen()?>/>
+				</td>
+				<td><a href="actualizar.php?idServicios=<?php echo $servicio->getidServicios()?>&accion=a">Actualizar</a> </td>
+				<td><a href="administrar.php?idServicios=<?php echo $servicio->getidServicios()?>&accion=e">Eliminar</a>   </td>
 			</tr>
 			<?php }?>
 		</body>
