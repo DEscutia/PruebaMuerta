@@ -23,7 +23,6 @@ require_once('conexion.php');
 			$db=Db::conectar();
 			$listaServicios=[];
 			$select=$db->query('SELECT * FROM Servicios');
-
 			foreach($select->fetchAll() as $servicio){
 				$myServicio= new Servicio();
 				$myServicio->setidServicios($servicio['idServicios']);
@@ -34,6 +33,21 @@ require_once('conexion.php');
 				$listaServicios[]=$myServicio;
 			}
 			return $listaServicios;
+		}
+		public function mostrarAtaudes(){
+			$db=Db::conectar();
+			$listaOituarios=[];
+			$select=$db->query('SELECT * FROM Ataudes');
+			foreach($select->fetchAll() as $servicio){
+				$myAtaud= new Ataud();
+				$myAtaud->setidServicios($servicio['idAtaudes']);
+				$myAtaud->setTitulo($servicio['Titulo']);
+				$myAtaud->setDescripcion($servicio['Descripcion']);
+				$myAtaud->setImagen($servicio['Imagen']);
+				$myAtaud->setidUsuarios($servicio['Usuarios_idUsuarios']);
+				$listaOituarios[]=$myAtaud;
+			}
+			return $listaOituarios;
 		}
 
 		// método para eliminar un libro, recibe como parámetro el id del libro
