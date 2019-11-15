@@ -28,16 +28,28 @@
   <div class="carousel-item active">
   <div class="row">
     <?php
-  
-    $uris = array("https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
-                  ,"https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg"
-                  ,"https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg");
-    $titulos= array("Titulo 1",
-                    "Titulo 2",
-                    "Titulo 3");
-    $textos=array("Texto 1",
-                  "Texto 2",
-                  "Texto 3");
+    $uris = array("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS3ZQehQhIkgxmeQmBjp65mJyjK-i3uihwoZyNHldl9AiC6C2Hk"
+                  ,"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTwyvR717Alibomt8sb-9XlW2PHNER127RT5fthwiOzMr9zCwTi"
+                  ,"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_V9QSOr6eZgWZirXZj2nCkiXj0Q2iNkZ6TxNTiRRQFFD_A8Gn");
+    $titulos= array("SRA. Fulanito",
+                    "SR. Fulanito",
+                    "SRA. Fulanito");
+    $textos=array("El duelo se recibe en: CalleAguaje #33, Rancho Nuevo
+                  Misa: SABADO 02 DE NOVIEMBRE, 
+                  HORA: 2:30 P.M, 
+                  Templo: DEL LUGAR. 
+                  Panteon: PIÑICUARO",
+                  "El duelo se recibe en: CalleAguaje #33, Rancho Nuevo
+                  Misa: SABADO 02 DE NOVIEMBRE, 
+                  HORA: 2:30 P.M, 
+                  Templo: DEL LUGAR. 
+                  Panteon: PIÑICUARO",
+                  "El duelo se recibe en: CalleAguaje #33, Rancho Nuevo
+                  Misa: SABADO 02 DE NOVIEMBRE, 
+                  HORA: 2:30 P.M, 
+                  Templo: DEL LUGAR. 
+                  Panteon: PIÑICUARO"
+                  );
 for($i=0;$i<3;$i=$i+1){
   echo "<div class='col-md-4 d-md-inline-block'>";
   echo "<div class='card mb-2'>";
@@ -63,14 +75,27 @@ echo"</div>";
   echo "<div class='carousel-item'>";
   echo "<div class='row'>";
     $uris = array("https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
-                  ,"https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg"
-                  ,"https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg");
-    $titulos= array("Titulo ".$j,
-                    "Titulo ".$j,
-                    "Titulo ".$j);
-    $textos=array("Texto 1",
-                  "Texto 2",
-                  "Texto 3");
+                  ,"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTwyvR717Alibomt8sb-9XlW2PHNER127RT5fthwiOzMr9zCwTi"
+                  ,"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_V9QSOr6eZgWZirXZj2nCkiXj0Q2iNkZ6TxNTiRRQFFD_A8Gn");
+  $titulos= array("SRA. Fulanito",
+                    "SR. Fulanito",
+                    "SRA. Fulanito");
+ $textos=array("El duelo se recibe en: CalleAguaje #33, Rancho Nuevo
+                    Misa: SABADO 02 DE NOVIEMBRE, 
+                    HORA: 2:30 P.M, 
+                    Templo: DEL LUGAR. 
+                    Panteon: PIÑICUARO",
+                    "El duelo se recibe en: CalleAguaje #33, Rancho Nuevo
+                    Misa: SABADO 02 DE NOVIEMBRE, 
+                    HORA: 2:30 P.M, 
+                    Templo: DEL LUGAR. 
+                    Panteon: PIÑICUARO",
+                    "El duelo se recibe en: CalleAguaje #33, Rancho Nuevo
+                    Misa: SABADO 02 DE NOVIEMBRE, 
+                    HORA: 2:30 P.M, 
+                    Templo: DEL LUGAR. 
+                    Panteon: PIÑICUARO"
+                    );
 for($i=0;$i<3;$i=$i+1){
   echo "<div class='col-md-4 d-md-inline-block'>";
   echo "<div class='card mb-2'>";
@@ -89,9 +114,12 @@ echo"</div>";
  echo"</div>";
 }
     ?>
+   
   <!--/.otros slides-->
+
 </div>
 <!--/.Slides-->
+
 </div>
 <!--/.Carousel Wrapper-->
     
