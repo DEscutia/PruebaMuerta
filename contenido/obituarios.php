@@ -28,7 +28,6 @@
   <div class="carousel-item active">
   <div class="row">
     <?php
-  
     $uris = array("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS3ZQehQhIkgxmeQmBjp65mJyjK-i3uihwoZyNHldl9AiC6C2Hk"
                   ,"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTwyvR717Alibomt8sb-9XlW2PHNER127RT5fthwiOzMr9zCwTi"
                   ,"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_V9QSOr6eZgWZirXZj2nCkiXj0Q2iNkZ6TxNTiRRQFFD_A8Gn");
@@ -123,4 +122,5 @@ echo"</div>";
 
 </div>
 <!--/.Carousel Wrapper-->
+    
 </section>

@@ -4,7 +4,7 @@
         <div class="row mt-5 mb-4">           
         <?php
           $uris = array(
-           "http://www.funeuskadi.com/blog/archivos/multimedia/2018/02/gama-excellence_3-300x239.jpg"
+            "http://www.funeuskadi.com/blog/archivos/multimedia/2018/02/gama-excellence_3-300x239.jpg"
           ,"http://www.funeuskadi.com/blog/archivos/multimedia/2018/02/modelo-alma-300x235.jpg"
           ,"http://www.funeuskadi.com/blog/archivos/multimedia/2018/02/modelo-mandr%C3%A1gora-300x219.jpg"
           ,"http://www.funeuskadi.com/blog/archivos/multimedia/2018/02/gama-excellence_2-300x234.jpg");
