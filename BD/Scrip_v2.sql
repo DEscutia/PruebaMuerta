@@ -69,7 +69,7 @@ ENGINE = InnoDB;
 -- Table `Funerales_I`.`Servicios`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Funerales_I`.`Servicios` (
-  `idServicios` INT NOT NULL,
+  `idServicios` INT NOT NULL AUTO_INCREMENT,
   `Titulo` VARCHAR(45) NOT NULL,
   `Descripcion` LONGTEXT NOT NULL,
   `Imagen` LONGTEXT NULL,
