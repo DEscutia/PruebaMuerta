@@ -7,12 +7,16 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/PruebaMuerta/admon/Modelos/servicios.ph
 	//busca el libro utilizando el id, que es enviado por GET desde la vista mostrar.php
 	$Servicio=$crud->obtenerServicio($_GET['idServicios']);
 ?>
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-	<title>Actualizar Servicios</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
 </head>
 <body>
-	<form action='administrar.php' method='post'>
+<form action='administrar.php' method='post'>
 	<table>
 		<tr>
 			<input type='hidden' name='idServicios' value='<?php echo $Servicio->getidServicios()?>'>
@@ -25,10 +29,10 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/PruebaMuerta/admon/Modelos/servicios.ph
 		</tr>
 		<tr>
 			<td>Imagen:</td>
-			<td><input type='text' name='Imagen' value='<?php echo $Servicio->geImagen() ?>'></td>
+			<td><a value='<?php echo $Servicio->geImagen() ?>'></td>
 		</tr>
-		<input type='hidden' name='actualizar' value='actualizar'>
 	</table>
+	<input type='hidden' name='actualizar' value='actualizar'>
 	<input type='submit' value='Guardar'>
 	<a href="index.php">Volver</a>
 </form>

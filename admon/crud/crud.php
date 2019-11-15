@@ -106,6 +106,22 @@ require_once('conexion.php');
 			$actualizar->bindValue('Imagen',$servicio->getImagen());
 			$actualizar->execute();
 		}
+
+		public function obtenerServicio($idServicio){
+			$db=Db::conectar();
+			$select=$db->prepare('SELECT * FROM Servicios WHERE idServicios=:idServicios');
+			$select->bindValue('idServicios',$idServicio);
+			$select->execute();
+			$myServicio= new Servicio();
+			foreach($select->fetchAll() as $servicio){
+				$myServicio->setidServicios($servicio['idServicios']);
+				$myServicio->setTitulo($servicio['Titulo']);
+				$myServicio->setDescripcion($servicio['Descripcion']);
+				$myServicio->setImagen($servicio['Imagen']);
+				$myServicio->setidUsuarios($servicio['Usuarios_idUsuarios']);
+			}
+			return $myServicio;
+		}
 		
 	}
 ?>
