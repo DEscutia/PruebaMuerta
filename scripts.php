@@ -16,36 +16,14 @@
   <!-- Google Maps -->
   <script>
       var map;
+      var izq = {lat: 20.1311721, lng: -101.1909645};
       function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
+        map = new google.maps.Map(document.getElementById('map-container'), {
+          center: izq,
+          zoom: 18
         });
+      var marker = new google.maps.Marker({position: izq, map: map, title: "Funerarias Izquierdo"});
       }
     </script>
-
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzsLS8zFEb5D0vpDtdJ_Gk17DooR7Mnzo&callback=initMap">
-  </script>
-
- <!-- <script>
-    function regular_map(){
-      var var_location = new google.maps.LatLng(20.131163,-101.190950);
-
-      var var_mapoptions = {
-        center: var_location,
-        zoom: 5
-      };
-
-      var var_map = new google.maps.Map(document.getElementById
-      ("map-container"), var_mapoptions);
-
-      var var_market = new google.maps.Market({
-        position: var_location,
-        map: var_map,
-        title: "Pending"
-      });
-    }
-    google.maps.event.addDomListener(window,'load',regular_map);
-  </script>-->
- 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzsLS8zFEb5D0vpDtdJ_Gk17DooR7Mnzo&callback=initMap"
+    async defer></script>

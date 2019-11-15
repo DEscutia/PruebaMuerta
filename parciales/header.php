@@ -45,6 +45,14 @@
             </li>
           </ul>
 
+          <ul class="navbar-nav nav-flex-icons">
+            <li class="nav-item">
+              <a href="https://www.facebook.com/funerariaizq/" class="nav-link" target="_blank">
+                <i class="far fa-user"></i>
+              </a>
+            </li>
+          </ul>         
+
       </div>
 
     </div>
