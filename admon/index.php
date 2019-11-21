@@ -1,4 +1,5 @@
 <?php
+//Esta es la ventana de logueo!
 session_start();
 if (isset($_SESSION['ena'])) {
   header('location:main.php');
@@ -28,6 +29,7 @@ if (isset($_POST['buttonLogin'])) {
 <html lang="en">
 
 <head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -184,7 +186,7 @@ if (isset($_POST['buttonLogin'])) {
         <div class="card card-signin my-5">
           <div class="card-body">
             <div class="text-center">
-              <img src="img/logo.jpg" height="50">
+            <i class="fas fa-lock"></i>
             </div>
             <h5 class="card-title text-center">Entrar</h5>
             <form class="form-signin" method="post">

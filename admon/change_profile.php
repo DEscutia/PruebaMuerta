@@ -25,8 +25,7 @@ if (isset($_POST['buttonSave'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,7 +36,6 @@ if (isset($_POST['buttonSave'])) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
-
 <body>
     <form method="post">
         <table>
@@ -75,5 +73,4 @@ if (isset($_POST['buttonSave'])) {
             </tr>
         </table>
 </body>
-
 </html>
