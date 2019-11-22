@@ -4,9 +4,9 @@ if (!isset($_SESSION['ena'])) {
     header('location:index.php');
 }
 require_once($_SERVER['DOCUMENT_ROOT'] . '/PruebaMuerta/admon/crud/crud.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . '/PruebaMuerta/admon/Modelos/servicios.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/PruebaMuerta/admon/Modelos/obituarios.php');
 $crud = new Crud();
-$servicio = new Servicio();
+$obituario = new Obituario();
 if (isset($_POST['insertar'])&&!$_FILES['uploadedfile']['size']==0) {
 	$msg="";
 	$uploadedfileload = "true";
@@ -22,15 +22,15 @@ if (isset($_POST['insertar'])&&!$_FILES['uploadedfile']['size']==0) {
 		header('Location: ../main.php?msg=' . $msg);
 	}
 	$file_name = $_POST['Titulo'] . $_FILES['uploadedfile']['name'];
-	$add = "../img/Servicios/$file_name";
+	$add = "../img/Obituarios/$file_name";
 	if ($uploadedfileload == "true") {
 		if (move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $add)) {
 			$msg = $msg . "Ha sido subido satisfactoriamente";
 			if ($uploadedfileload == 'true') {
-				$servicio->setTitulo($_POST['Titulo']);
-				$servicio->setDescripcion($_POST['Descripcion']);
-				$servicio->setImagen($file_name);
-				$crud->insertarServicio($servicio);
+				$obituario->setTitulo($_POST['Titulo']);
+				$obituario->setDescripcion($_POST['Descripcion']);
+				$obituario->setImagen($file_name);
+				$crud->insertarObituario($obituario);
 				header('Location: ../main.php?msg=' . $msg);
 			}
 		} else {

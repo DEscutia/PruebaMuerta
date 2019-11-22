@@ -1,7 +1,4 @@
 <?php
-if (!isset($_SESSION['ena'])) {
-    header('location:index.php');
-}
 require_once('conexion.php');
 	class Crud{
 		public function __construct(){}
