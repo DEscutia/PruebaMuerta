@@ -20,7 +20,7 @@ require_once('conexion.php');
 			$insert->bindValue('Descripcion',$ataud->getDescripcion());
 			$insert->bindValue('Precio',$ataud->getPrecio());
 			$insert->bindValue('Imagen',$ataud->getImagen());
-			$insert->bindValue('Usuarios_idUsuarios',$ataud->getidUsuarios());
+			$insert->bindValue('Usuarios_idUsuarios',$_SESSION['id']);
 			$insert->execute();
 
 		}
@@ -30,7 +30,7 @@ require_once('conexion.php');
 			$insert->bindValue('Titulo',$obituario->getTitulo());
 			$insert->bindValue('Descripcion',$obituario->getDescripcion());
 			$insert->bindValue('Imagen',$obituario->getImagen());
-			$insert->bindValue('Usuarios_idUsuarios',$obituario->getidUsuarios());
+			$insert->bindValue('Usuarios_idUsuarios',$_SESSION['id']);
 			$insert->execute();
 
 		}
