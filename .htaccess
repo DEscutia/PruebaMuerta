@@ -1,2 +1,2 @@
 ErrorDocument 404 http://localhost/pruebaMuerta/404.php
-ErrorDocument 500 http://example.com/500/
+ErrorDocument 500 http://localhost/pruebaMuerta/404.php

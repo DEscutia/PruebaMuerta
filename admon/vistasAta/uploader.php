@@ -1,13 +1,14 @@
 <?php
-//incluye la clase Libro y CrudLibro
+session_start();
+if (!isset($_SESSION['ena'])) {
+    header('location:index.php');
+}
 require_once($_SERVER['DOCUMENT_ROOT'] . '/PruebaMuerta/admon/crud/crud.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/PruebaMuerta/admon/Modelos/servicios.php');
-
 $crud = new Crud();
 $servicio = new Servicio();
-
-// si el elemento insertar no viene nulo llama al crud e inserta un libro
-if (isset($_POST['insertar'])) {
+if (isset($_POST['insertar'])&&!$_FILES['uploadedfile']['size']==0) {
+	$msg="";
 	$uploadedfileload = "true";
 	$uploadedfile_size = $_FILES['uploadedfile']['size'];
 	if ($_FILES['uploadedfile']['size'] > 10000000) {
@@ -20,24 +21,23 @@ if (isset($_POST['insertar'])) {
 		$uploadedfileload = "false";
 		header('Location: ../main.php?msg=' . $msg);
 	}
-	$file_name = $servicio->getTitulo() . $_FILES['uploadedfile']['name'];
+	$file_name = $_POST['Titulo'] . $_FILES['uploadedfile']['name'];
 	$add = "../img/Servicios/$file_name";
 	if ($uploadedfileload == "true") {
 		if (move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $add)) {
 			$msg = $msg . "Ha sido subido satisfactoriamente";
+			if ($uploadedfileload == 'true') {
+				$servicio->setTitulo($_POST['Titulo']);
+				$servicio->setDescripcion($_POST['Descripcion']);
+				$servicio->setImagen($file_name);
+				$crud->insertarServicio($servicio);
+				header('Location: ../main.php?msg=' . $msg);
+			}
 		} else {
 			$msg = $msg . "Error al subir el archivo";
 			header('Location: ../main.php?msg=' . $msg);
 		}
 	} else {
-		echo $msg;
-	}
-	if ($uploadedfileload == 'true') {
-		$servicio->setTitulo($_POST['Titulo']);
-		$servicio->setDescripcion($_POST['Descripcion']);
-		$servicio->setImagen($servicio->getTitulo() . $_FILES['uploadedfile']['name']);
-		//llama a la función insertar definida en el crud
-		$crud->insertarServicio($servicio);
 		header('Location: ../main.php?msg=' . $msg);
 	}
 }

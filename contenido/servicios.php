@@ -12,6 +12,9 @@
         $listaServicios = [];
         $listaServicios = $crud->mostrarServicios();
 
+        if(count($listaServicios)==0){
+            echo "Ningun servicio registrado";
+        }
         foreach ($listaServicios as $servicio) {
             echo "<div class ='card md-4'>";
             echo "<div class='view overlay'>";

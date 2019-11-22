@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>FUNERALES IZQUIERDO</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Bootstrap core CSS -->
@@ -23,10 +23,10 @@
 </head>
 <body>
   <?php
-  include "parciales/header.php";
-  include "main.php";
-  include "parciales/footer.php";
-  include "scripts.php";
+  require "parciales/header.php";
+  require "main.php";
+  require "parciales/footer.php";
+  require "scripts.php";
   ?>
 </body>
 </html>

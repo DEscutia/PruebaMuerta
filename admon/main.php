@@ -8,23 +8,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
   header('location:index.php');
 } else if (!isset($_SESSION['ena'])) {
   header('location:index.php');
-} else if (isset($_GET['action']) && $_GET['action'] == 'succesUpdate') {
-  echo "";
-  echo "<div class='alert alert-success' role='alert'>";
-  echo "<strong>¡Actualizacion correcta!</strong> Actualizaste correctamente tu usuario.";
-  echo "</div>";
-}
-if (isset($_GET['action']) && $_GET['action'] == 'succesRegister') {
-  echo "";
-  echo "<div class='alert alert-success' role='alert'>";
-  echo "<strong>¡Registro correcto!</strong> Registraste correctamente un Usuario.";
-  echo "</div>";
-}
-if (isset($_GET['msg'])) {
-  echo "";
-  echo "<div class='alert alert-info' role='alert'>";
-  echo "<strong>¡Atencion!</strong>" . $_GET['msg'];
-  echo "</div>";
 }
 ?>
 <!DOCTYPE html>
@@ -49,6 +32,26 @@ if (isset($_GET['msg'])) {
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
     </button>
+    <?php
+ if (isset($_GET['action']) && $_GET['action'] == 'succesUpdate') {
+  echo "";
+  echo "<div class='alert alert-success ml-auto' role='alert'>";
+  echo "<strong>¡Actualizacion correcta!</strong> Actualizaste correctamente tu usuario.";
+  echo "</div>";
+}
+if (isset($_GET['action']) && $_GET['action'] == 'succesRegister') {
+  echo "";
+  echo "<div class='alert alert-success ml-auto' role='alert'>";
+  echo "<strong>¡Registro correcto!</strong> Registraste correctamente un Usuario.";
+  echo "</div>";
+}
+if (isset($_GET['msg'])) {
+  echo "";
+  echo "<div class='alert alert-info ml-auto' role='alert'>";
+  echo "<strong>¡Atencion! </strong>" . $_GET['msg'];
+  echo "</div>";
+}
+?>
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0">
       <li class="nav-item dropdown no-arrow">
@@ -79,12 +82,14 @@ if (isset($_GET['msg'])) {
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <h6 class="dropdown-header">Servicios:</h6>
-          <a class="dropdown-item" href="vistas/ingresar.php">Insertar Servicios</a>
-          <a class="dropdown-item" href="vistas/mostrar.php">Ver los servicios</a>
+          <a class="dropdown-item" href="vistasServ/ingresar.php">Insertar Servicios</a>
+          <a class="dropdown-item" href="vistasServ/mostrar.php">Ver los servicios</a>
           <h6 class="dropdown-header">Obituarios:</h6>
-          <a class="dropdown-item" href="register.html">Obituarios</a>
+          <a class="dropdown-item" href="vistasObi/ingresar.php">Insertar Obituarios</a>
+          <a class="dropdown-item" href="vistasObi/mostrar.php">Ver los Obituarios</a>
           <h6 class="dropdown-header">Ataudes:</h6>
-          <a class="dropdown-item" href="forgot-password.html">Ataudes</a>
+          <a class="dropdown-item" href="vistasAta/ingresar.php">Insertar Ataudes</a>
+          <a class="dropdown-item" href="vistasAta/mostrar.php">Ver los Ataudes</a>
           <div class="dropdown-divider"></div>
           <h6 class="dropdown-header">Otras paginas:</h6>
           <a class="dropdown-item" href="404.html">Acerca de...</a>

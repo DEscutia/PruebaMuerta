@@ -1,12 +1,10 @@
 <?php
-// incluye la clase Db
+if (!isset($_SESSION['ena'])) {
+    header('location:index.php');
+}
 require_once('conexion.php');
-
 	class Crud{
-		// constructor de la clase
 		public function __construct(){}
-
-		// método para insertar, recibe como parámetro un objeto de tipo libro
 		public function insertarServicio($servicio){
 			session_start();
 			echo $_SESSION['id'];
@@ -39,8 +37,6 @@ require_once('conexion.php');
 			$insert->execute();
 
 		}
-
-		// método para mostrar todos los libros
 		public function mostrarServicios(){
 			$db=Db::conectar();
 			$listaServicios=[];
@@ -87,16 +83,12 @@ require_once('conexion.php');
 			}
 			return $listaOituarios;
 		}
-
-		// método para eliminar un libro, recibe como parámetro el id del libro
 		public function eliminarServicioByID($id){
 			$db=Db::conectar();
 			$eliminar=$db->prepare('DELETE FROM Servicios WHERE idServicios=:id');
 			$eliminar->bindValue('id',$id);
 			$eliminar->execute();
 		}
-
-		// método para actualizar un libro, recibe como parámetro el libro
 		public function actualizarServicio($servicio){
 			$db=Db::conectar();
 			$actualizar=$db->prepare('UPDATE Servicios SET Titulo=:Titulo, Descripcion=:Descripcion,Imagen=:Imagen  WHERE idServicios=:idServicios');
@@ -106,7 +98,6 @@ require_once('conexion.php');
 			$actualizar->bindValue('Imagen',$servicio->getImagen());
 			$actualizar->execute();
 		}
-
 		public function obtenerServicio($idServicio){
 			$db=Db::conectar();
 			$select=$db->prepare('SELECT * FROM Servicios WHERE idServicios=:idServicios');
@@ -122,5 +113,4 @@ require_once('conexion.php');
 			}
 			return $myServicio;
 		}
-		
 	}

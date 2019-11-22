@@ -12,7 +12,6 @@
   // Animations initialization
   new WOW().init();
 </script>
-
 <!-- Google Maps -->
 <script>
   var map;
@@ -20,7 +19,6 @@
     lat: 20.1311721,
     lng: -101.1909645
   };
-
   function initMap() {
     map = new google.maps.Map(document.getElementById('map-container'), {
       center: izq,

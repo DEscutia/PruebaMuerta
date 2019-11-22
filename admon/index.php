@@ -26,8 +26,7 @@ if (isset($_POST['buttonLogin'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -178,7 +177,6 @@ if (isset($_POST['buttonLogin'])) {
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Pantalla de verificacion</title>
 </head>
-
 <body>
   <div class="container">
     <div class="row">
@@ -201,7 +199,6 @@ if (isset($_POST['buttonLogin'])) {
                 <input type="text" id="inputEmail" class="form-control" placeholder="Direccion de Email" name="username" required autofocus>
                 <label for="inputEmail">Nombre de usuario</label>
               </div>
-
               <div class="form-label-group">
                 <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" name="password" required>
                 <label for="inputPassword">Contraseña</label>
