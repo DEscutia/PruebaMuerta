@@ -28,7 +28,7 @@ if (isset($_POST['buttonSave'])) {
 </head>
 <body id="page-top">
 <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-    <a class="navbar-brand mr-1" href="../main.php">Consola de Administracion de contenido</a>
+    <a class="navbar-brand mr-1" href="main.php">Consola de Administracion de contenido</a>
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
     </button>
@@ -39,7 +39,7 @@ if (isset($_POST['buttonSave'])) {
           <i class="fas fa-user-circle fa-fw"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="../change_profile.php">Editar Perfil</a>
+          <a class="dropdown-item" href="change_profile.php">Editar Perfil</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Salir</a>
         </div>
@@ -50,7 +50,7 @@ if (isset($_POST['buttonSave'])) {
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="../main.php">
+        <a class="nav-link" href="main.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
         </a>
@@ -62,14 +62,14 @@ if (isset($_POST['buttonSave'])) {
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <h6 class="dropdown-header">Servicios:</h6>
-          <a class="dropdown-item" href="ingresar.php">Insertar Servicios</a>
-          <a class="dropdown-item" href="mostrar.php">Ver los servicios</a>
+          <a class="dropdown-item" href="vistasServ/ingresar.php">Insertar Servicios</a>
+          <a class="dropdown-item" href="vistasServ/mostrar.php">Ver los servicios</a>
           <h6 class="dropdown-header">Obituarios:</h6>
-          <a class="dropdown-item" href="../vistasObi/ingresar.php">Insertar Obituarios</a>
-          <a class="dropdown-item" href="../vistasObi/mostrar.php">Ver los Obituarios</a>
+          <a class="dropdown-item" href="vistasObi/ingresar.php">Insertar Obituarios</a>
+          <a class="dropdown-item" href="vistasObi/mostrar.php">Ver los Obituarios</a>
           <h6 class="dropdown-header">Ataudes:</h6>
-          <a class="dropdown-item" href="../vistasAta/ingresar.php">Insertar Ataudes</a>
-          <a class="dropdown-item" href="../vistasAta/mostrar.php">Ver los Ataudes</a>
+          <a class="dropdown-item" href="vistasAta/ingresar.php">Insertar Ataudes</a>
+          <a class="dropdown-item" href="vistasAta/mostrar.php">Ver los Ataudes</a>
           <div class="dropdown-divider"></div>
           <h6 class="dropdown-header">Otras paginas:</h6>
           <a class="dropdown-item" href="404.html">Acerca de...</a>

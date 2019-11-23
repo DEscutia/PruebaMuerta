@@ -122,7 +122,7 @@ $Servicio = $crud->obtenerServicio($_GET['idServicios']);
     <tr>
       <td>
         <button type="submit" value="Guardar">Guardar</button>
-        <input type="hidden" name="actualizar" value="actualizar"> 
+        <input type="hidden" name="actualizarServicio" value="actualizarServicio"> 
       </td>
     </tr>
 		</table>

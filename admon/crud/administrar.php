@@ -8,14 +8,14 @@ require_once('crud.php');
 require_once('../Modelos/servicios.php');
 $crud= new Crud();
 $servicio= new Servicio();
-	if (isset($_POST['insertar'])) {
+	if (isset($_POST['insertarServicio'])) {
 		$servicio->setTitulo($_POST['Titulo']);
 		$servicio->setDescripcion($_POST['Descripcion']);
 		$servicio->setImagen($_POST['Imagen']);
 		//llama a la función insertar definida en el crud
 		$crud->insertarServicio($servicio);
 		header('Location: ../main.php?msg=Se inserto correctamente.');
-	}else if(isset($_POST['actualizar'])){
+	}else if(isset($_POST['actualizarServicio'])){
 		if($_FILES['uploadedfile']['size']==0){
 			//Si no se selecciono nueva imagen
 			$servicio->setidServicios($_POST['id']);
@@ -63,7 +63,7 @@ $servicio= new Servicio();
 				header('Location: ../main.php?msg=' . $msg);
 			}	
 		}
-	}elseif ($_GET['accion']=='e') {
+	}elseif ($_GET['accion']=='eServicio') {
 		unlink('../img/Servicios/'. $_GET['ruta']);
 		$crud->eliminarServicioByID($_GET['idServicios']);
 		header('Location: ../main.php?msg=Se eleimino correctamente.');

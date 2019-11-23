@@ -20,10 +20,8 @@
       <li data-target="#multi-item-example" data-slide-to="2"></li>
     </ol>
     <!--/.Indicators-->
-
     <!--Slides-->
     <div class="carousel-inner" role="listbox">
-
       <!--First slide-->
       <!--Cada slide tiene que ser de 3 tarjetas-->
       <div class="carousel-item active">
@@ -54,7 +52,34 @@
                   Templo: DEL LUGAR. 
                   Panteon: PIÑICUARO"
           );
-          for ($i = 0; $i < 3; $i = $i + 1) {
+          //
+          require_once("admon/crud/crud.php");
+          require_once('admon/Modelos/obituarios.php');
+          $crud = new Crud();
+          $obituario = new Obituario();
+          $listaObituarios = [];
+          $listaObituarios = $crud->mostrarObituarios();
+
+        if(count($listaObituarios)==0){
+            echo "         Ningun obituario registrado";
+        }
+        foreach($listaObituarios as $obituario){
+          echo "<div class='col-md-4 d-md-inline-block'>";
+          echo "<div class='card mb-2'>";
+          echo "<img class='card-img-top'
+    src=
+    admon/img/Obituarios/" . $obituario->getImagen() . "
+    alt='Card image cap'>";
+          echo "<div class='card-body'> ";
+          echo " <h4 class='card-title'>" . $obituario->getTitulo() . "</h4>";
+          echo "<p class='card-text'>" . $obituario->getDescripcion() . "</p>";
+          echo "</div>";
+          echo "</div>";
+          echo "</div>";
+        }
+          //
+          /*
+          for ($i = 0; $i < count($listaObituarios); $i = $i + 1) {
             echo "<div class='col-md-4 d-md-inline-block'>";
             echo "<div class='card mb-2'>";
             echo "<img class='card-img-top'
@@ -68,6 +93,7 @@
             echo "</div>";
             echo "</div>";
           }
+          */
           ?>
         </div>
       </div>
@@ -75,6 +101,7 @@
 
       <!--Codigo para agregar cualquier otro slide pero sin el ITEM ACTIVO-->
       <?php
+      /*
       for ($j = 0; $j < 3; $j = $j + 1) {
         echo "<div class='carousel-item'>";
         echo "<div class='row'>";
@@ -120,6 +147,7 @@
         echo "</div>";
         echo "</div>";
       }
+      */
       ?>
 
       <!--/.otros slides-->

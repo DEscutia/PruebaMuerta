@@ -7,7 +7,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/PruebaMuerta/admon/crud/crud.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/PruebaMuerta/admon/Modelos/servicios.php');
 $crud = new Crud();
 $servicio = new Servicio();
-if (isset($_POST['insertar'])&&!$_FILES['uploadedfile']['size']==0) {
+if (isset($_POST['insertarServicio'])&&!$_FILES['uploadedfile']['size']==0) {
 	$msg="";
 	$uploadedfileload = "true";
 	$uploadedfile_size = $_FILES['uploadedfile']['size'];

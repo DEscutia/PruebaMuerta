@@ -121,7 +121,7 @@ $listaServicios=[];
 						<td><?php echo $servicio->getDescripcion() ?></td>
 						<td><?php echo "<img src='../img/Servicios/" . $servicio->getImagen() . "'height='100' >";?></td>
 						<td><a href="actualizar.php?idServicios=<?php echo $servicio->getidServicios() ?>">Actualizar</a> </td>
-						<td><a href="../crud/administrar.php?idServicios=<?php echo $servicio->getidServicios() ?>&accion=e&ruta=<?php echo $servicio->getImagen() ?>">Eliminar</a> </td>
+						<td><a href="../crud/administrar.php?idServicios=<?php echo $servicio->getidServicios() ?>&accion=eServicio&ruta=<?php echo $servicio->getImagen() ?>">Eliminar</a> </td>
 					</tr>
 				<?php } ?>
 			</tbody>

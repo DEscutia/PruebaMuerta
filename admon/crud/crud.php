@@ -15,7 +15,7 @@ require_once('conexion.php');
 		}
 		public function insertarAtaud($ataud){
 			$db=Db::conectar();
-			$insert=$db->prepare('INSERT INTO Ataudes values(NULL,:Titulo,:Descripcion,:Imagen,:idUsuarios)');
+			$insert=$db->prepare('INSERT INTO Ataudes values(NULL,:Titulo,:Descripcion,:Imagen,:Usuarios_idUsuarios)');
 			$insert->bindValue('Titulo',$ataud->getTitulo());
 			$insert->bindValue('Descripcion',$ataud->getDescripcion());
 			$insert->bindValue('Precio',$ataud->getPrecio());
@@ -26,7 +26,7 @@ require_once('conexion.php');
 		}
 		public function insertarObituario($obituario){
 			$db=Db::conectar();
-			$insert=$db->prepare('INSERT INTO Obituarios values(NULL,:Titulo,:Descripcion,:Imagen,:idUsuarios)');
+			$insert=$db->prepare('INSERT INTO Obituarios values(NULL,:Titulo,:Descripcion,:Imagen,:Usuarios_idUsuarios)');
 			$insert->bindValue('Titulo',$obituario->getTitulo());
 			$insert->bindValue('Descripcion',$obituario->getDescripcion());
 			$insert->bindValue('Imagen',$obituario->getImagen());
@@ -68,14 +68,14 @@ require_once('conexion.php');
 		public function mostrarObituarios(){
 			$db=Db::conectar();
 			$listaOituarios=[];
-			$select=$db->query('SELECT * FROM Ataudes');
-			foreach($select->fetchAll() as $servicio){
-				$myObituario= new Obituarios();
-				$myObituario->setidObituarios($servicio['idObituarios']);
-				$myObituario->setTitulo($servicio['Titulo']);
-				$myObituario->setDescripcion($servicio['Descripcion']);
-				$myObituario->setImagen($servicio['Imagen']);
-				$myObituario->setidUsuarios($servicio['Usuarios_idUsuarios']);
+			$select=$db->query('SELECT * FROM obituarios');
+			foreach($select->fetchAll() as $obituario){
+				$myObituario= new Obituario();
+				$myObituario->setidObituarios($obituario['idObituarios']);
+				$myObituario->setTitulo($obituario['Titulo']);
+				$myObituario->setDescripcion($obituario['Descripcion']);
+				$myObituario->setImagen($obituario['Imagen']);
+				$myObituario->setidUsuarios($obituario['Usuarios_idUsuarios']);
 				$listaOituarios[]=$myObituario;
 			}
 			return $listaOituarios;

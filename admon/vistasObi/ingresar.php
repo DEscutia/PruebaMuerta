@@ -3,13 +3,6 @@ session_start();
 if (!isset($_SESSION['ena'])) {
     header('location:index.php');
 }
-//incluye la clase Libro y CrudLibro
-require_once($_SERVER['DOCUMENT_ROOT'] . '/PruebaMuerta/admon/crud/crud.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . '/PruebaMuerta/admon/Modelos/servicios.php');
-$crud = new Crud();
-$servicio = new Servicio();
-//obtiene todos los libros con el método mostrar de la clase crud
-$listaservicios = $crud->mostrarServicios();
 ?>
 <!DOCTYPE html>
 <html lang="es">

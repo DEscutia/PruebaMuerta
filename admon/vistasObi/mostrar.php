@@ -5,11 +5,11 @@ if (!isset($_SESSION['ena'])) {
 }
 //incluye la clase Libro y CrudLibro
 require_once($_SERVER['DOCUMENT_ROOT'] . '/PruebaMuerta/admon/crud/crud.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . '/PruebaMuerta/admon/Modelos/servicios.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/PruebaMuerta/admon/Modelos/obituarios.php');
 $crud = new Crud();
-$servicio = new Servicio();
+$Obituario = new Obituario();
 //obtiene todos los libros con el método mostrar de la clase crud
-$listaServicios=[];
+$listaObituarios=[];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -98,10 +98,10 @@ $listaServicios=[];
         </ol>
         <!-- Page Content -->
         <?php
-        $listaservicios = $crud->mostrarServicios();
-        if(count($listaservicios)==0){
+        $listaObituarios = $crud->mostrarObituarios();
+        if(count($listaObituarios)==0){
             echo "<div class='alert alert-info ml-auto' role='alert'>";
-            echo "<strong>¡Atencion! </strong>" . "Ningun servicio registrado";
+            echo "<strong>¡Atencion! </strong>" . "Ningun obituario registrado";
             echo "</div>";
         }
         ?>
@@ -115,15 +115,17 @@ $listaServicios=[];
 				<td>Eliminar</td>
 			</thead>
 			<tbody>
-				<?php foreach ($listaservicios as $servicio) { ?>
-					<tr>
-						<td><?php echo $servicio->getTitulo() ?></td>
-						<td><?php echo $servicio->getDescripcion() ?></td>
-						<td><?php echo "<img src='../img/Servicios/" . $servicio->getImagen() . "'height='100' >";?></td>
-						<td><a href="actualizar.php?idServicios=<?php echo $servicio->getidServicios() ?>">Actualizar</a> </td>
-						<td><a href="../crud/administrar.php?idServicios=<?php echo $servicio->getidServicios() ?>&accion=e&ruta=<?php echo $servicio->getImagen() ?>">Eliminar</a> </td>
-					</tr>
-				<?php } ?>
+      <?php
+      foreach($listaObituarios as $Obituario){
+        echo "<tr>";
+        echo "<td>".$Obituario->getTitulo()."</td>";
+        echo "<td>".$Obituario->getDescripcion()."</td>";
+        echo "<td><img src='../img/Obituarios/". $Obituario->getImagen() . "'height='100' ></td>";
+        echo "<td> <a href='actualizar.php?idObituarios=".$Obituario->getidObituarios()."'>Actualizar</a></td>";
+        echo "<td> <a href='../crud/administrar.php?idServicios=".$Obituario->getidObituarios()."&acction=e&ruta=".$Obituario->getImagen()."'>Eliminar</a></td>";
+        echo "</tr>";
+      }
+      ?>
 			</tbody>
 		</table>
 	</div>
