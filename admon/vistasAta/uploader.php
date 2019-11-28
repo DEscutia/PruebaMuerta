@@ -4,9 +4,9 @@ if (!isset($_SESSION['ena'])) {
     header('location:index.php');
 }
 require_once($_SERVER['DOCUMENT_ROOT'] . '/PruebaMuerta/admon/crud/crud.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . '/PruebaMuerta/admon/Modelos/servicios.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/PruebaMuerta/admon/Modelos/ataud.php');
 $crud = new Crud();
-$servicio = new Servicio();
+$ataud = new Ataud();
 if (isset($_POST['insertar'])&&!$_FILES['uploadedfile']['size']==0) {
 	$msg="";
 	$uploadedfileload = "true";
@@ -22,15 +22,16 @@ if (isset($_POST['insertar'])&&!$_FILES['uploadedfile']['size']==0) {
 		header('Location: ../main.php?msg=' . $msg);
 	}
 	$file_name = $_POST['Titulo'] . $_FILES['uploadedfile']['name'];
-	$add = "../img/Servicios/$file_name";
+	$add = "../img/Ataudes/$file_name";
 	if ($uploadedfileload == "true") {
 		if (move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $add)) {
 			$msg = $msg . "Ha sido subido satisfactoriamente";
 			if ($uploadedfileload == 'true') {
-				$servicio->setTitulo($_POST['Titulo']);
-				$servicio->setDescripcion($_POST['Descripcion']);
-				$servicio->setImagen($file_name);
-				$crud->insertarServicio($servicio);
+				$ataud->setTitulo($_POST['Titulo']);
+				$ataud->setDescripcion($_POST['Descripcion']);
+				$ataud->setImagen($file_name);
+				$ataud->setPrecio($_POST['Precio']);
+				$crud->insertarAtaud($ataud);
 				header('Location: ../main.php?msg=' . $msg);
 			}
 		} else {
@@ -40,4 +41,11 @@ if (isset($_POST['insertar'])&&!$_FILES['uploadedfile']['size']==0) {
 	} else {
 		header('Location: ../main.php?msg=' . $msg);
 	}
+}else if(isset($_POST['insertar'])){
+	$ataud->setTitulo($_POST['Titulo']);
+	$ataud->setDescripcion($_POST['Descripcion']);
+	$ataud->setImagen($file_name);
+	$ataud->setPrecio($_POST['Precio']);
+	$crud->insertarAtaud($ataud);
+	header('Location: ../main.php?msg=' . "Se inserto correctamente");
 }

@@ -5,11 +5,11 @@ if (!isset($_SESSION['ena'])) {
 }
 //incluye la clase Libro y CrudLibro
 require_once($_SERVER['DOCUMENT_ROOT'] . '/PruebaMuerta/admon/crud/crud.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . '/PruebaMuerta/admon/Modelos/servicios.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/PruebaMuerta/admon/Modelos/ataud.php');
 $crud = new Crud();
-$servicio = new Servicio();
+$Ataud = new Ataud();
 //obtiene todos los libros con el método mostrar de la clase crud
-$listaServicios=[];
+$listaAtaudes=[];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -19,7 +19,7 @@ $listaServicios=[];
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Consola de Administracion - Servicios</title>
+  <title>Consola de Administracion - Ataudes</title>
   <!-- Custom fonts for this template-->
   <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
@@ -63,8 +63,8 @@ $listaServicios=[];
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <h6 class="dropdown-header">Servicios:</h6>
-          <a class="dropdown-item" href="ingresar.php">Insertar Servicios</a>
-          <a class="dropdown-item" href="mostrar.php">Ver los servicios</a>
+          <a class="dropdown-item" href="../vistasServ/ingresar.php">Insertar Servicios</a>
+          <a class="dropdown-item" href="../vistasServ/mostrar.php">Ver los servicios</a>
           <h6 class="dropdown-header">Obituarios:</h6>
           <a class="dropdown-item" href="../vistasObi/ingresar.php">Insertar Obituarios</a>
           <a class="dropdown-item" href="../vistasObi/mostrar.php">Ver los Obituarios</a>
@@ -94,14 +94,14 @@ $listaServicios=[];
           <li class="breadcrumb-item">
             <a href="main.php">Dashboard</a>
           </li>
-          <li class="breadcrumb-item active">Servicios</li>
+          <li class="breadcrumb-item active">Ataudes</li>
         </ol>
         <!-- Page Content -->
         <?php
-        $listaservicios = $crud->mostrarServicios();
-        if(count($listaservicios)==0){
+        $listaAtaudes = $crud->mostrarAtaudes();
+        if(count($listaAtaudes)==0){
             echo "<div class='alert alert-info ml-auto' role='alert'>";
-            echo "<strong>¡Atencion! </strong>" . "Ningun servicio registrado";
+            echo "<strong>¡Atencion! </strong>" . "Ningun Ataud registrado";
             echo "</div>";
         }
         ?>
@@ -111,17 +111,19 @@ $listaServicios=[];
 				<td>Titulo</td>
 				<td>Descripcion</td>
 				<td>Imagen</td>
+        <td>Precio</td>
 				<td>Actualizar</td>
 				<td>Eliminar</td>
 			</thead>
 			<tbody>
-				<?php foreach ($listaservicios as $servicio) { ?>
+				<?php foreach ($listaAtaudes as $ataud) { ?>
 					<tr>
-						<td><?php echo $servicio->getTitulo() ?></td>
-						<td><?php echo $servicio->getDescripcion() ?></td>
-						<td><?php echo "<img src='../img/Servicios/" . $servicio->getImagen() . "'height='100' >";?></td>
-						<td><a href="actualizar.php?idServicios=<?php echo $servicio->getidServicios() ?>">Actualizar</a> </td>
-						<td><a href="../crud/administrar.php?idServicios=<?php echo $servicio->getidServicios() ?>&accion=e&ruta=<?php echo $servicio->getImagen() ?>">Eliminar</a> </td>
+						<td><?php echo $ataud->getTitulo() ?></td>
+						<td><?php echo $ataud->getDescripcion() ?></td>
+						<td><?php echo "<img src='../img/Ataudes/" . $ataud->getImagen() . "'height='100' >";?></td>
+            <td><?php echo $ataud->getPrecio() ?></td>
+						<td><a href="actualizar.php?idAtaudes=<?php echo $ataud->getidAtaudes() ?>">Actualizar</a> </td>
+						<td><a href="../crud/administrar.php?idAtaudes=<?php echo $ataud->getidAtaudes() ?>&acction=eAtaud&ruta=<?php echo $ataud->getImagen() ?>">Eliminar</a> </td>
 					</tr>
 				<?php } ?>
 			</tbody>

@@ -15,11 +15,11 @@ require_once('conexion.php');
 		}
 		public function insertarAtaud($ataud){
 			$db=Db::conectar();
-			$insert=$db->prepare('INSERT INTO Ataudes values(NULL,:Titulo,:Descripcion,:Imagen,:Usuarios_idUsuarios)');
+			$insert=$db->prepare('INSERT INTO ataudes values(NULL,:Titulo,:Descripcion,:Imagen,:Precio,:Usuarios_idUsuarios)');
 			$insert->bindValue('Titulo',$ataud->getTitulo());
 			$insert->bindValue('Descripcion',$ataud->getDescripcion());
-			$insert->bindValue('Precio',$ataud->getPrecio());
 			$insert->bindValue('Imagen',$ataud->getImagen());
+			$insert->bindValue('Precio',$ataud->getPrecio());
 			$insert->bindValue('Usuarios_idUsuarios',$_SESSION['id']);
 			$insert->execute();
 
@@ -52,18 +52,18 @@ require_once('conexion.php');
 		public function mostrarAtaudes(){
 			$db=Db::conectar();
 			$listaAtaudes=[];
-			$select=$db->query('SELECT * FROM Ataudes');
-			foreach($select->fetchAll() as $servicio){
+			$select=$db->query('SELECT * FROM ataudes');
+			foreach($select->fetchAll() as $ataud){
 				$myAtaud= new Ataud();
-				$myAtaud->setidAtaudes($servicio['idAtaudes']);
-				$myAtaud->setTitulo($servicio['Titulo']);
-				$myAtaud->setDescripcion($servicio['Descripcion']);
-				$myAtaud->setImagen($servicio['Imagen']);
-				$myAtaud->setPrecio($servicio['Precio']);
-				$myAtaud->setidUsuarios($servicio['Usuarios_idUsuarios']);
+				$myAtaud->setidAtaudes($ataud['idAtaudes']);
+				$myAtaud->setTitulo($ataud['Titulo']);
+				$myAtaud->setDescripcion($ataud['Descripcion']);
+				$myAtaud->setImagen($ataud['Imagen']);
+				$myAtaud->setPrecio($ataud['Precio']);
+				$myAtaud->setidUsuarios($ataud['Usuarios_idUsuarios']);
 				$listaAtaudes[]=$myAtaud;
 			}
-			return $listaOituarios;
+			return $listaAtaudes;
 		}
 		public function mostrarObituarios(){
 			$db=Db::conectar();
@@ -86,6 +86,18 @@ require_once('conexion.php');
 			$eliminar->bindValue('id',$id);
 			$eliminar->execute();
 		}
+		public function eliminarObituarioByID($id){
+			$db=Db::conectar();
+			$eliminar=$db->prepare('DELETE FROM obituarios WHERE idObituarios=:id');
+			$eliminar->bindValue('id',$id);
+			$eliminar->execute();
+		}
+		public function eliminarAtaudByID($id){
+			$db=Db::conectar();
+			$eliminar=$db->prepare('DELETE FROM ataudes WHERE idAtaudes=:id');
+			$eliminar->bindValue('id',$id);
+			$eliminar->execute();
+		}
 		public function actualizarServicio($servicio){
 			$db=Db::conectar();
 			$actualizar=$db->prepare('UPDATE Servicios SET Titulo=:Titulo, Descripcion=:Descripcion,Imagen=:Imagen  WHERE idServicios=:idServicios');
@@ -93,6 +105,25 @@ require_once('conexion.php');
 			$actualizar->bindValue('Titulo',$servicio->getTitulo());
 			$actualizar->bindValue('Descripcion',$servicio->getDescripcion());
 			$actualizar->bindValue('Imagen',$servicio->getImagen());
+			$actualizar->execute();
+		}
+		public function actualizarObituario($obituario){
+			$db=Db::conectar();
+			$actualizar=$db->prepare('UPDATE obituarios SET Titulo=:Titulo, Descripcion=:Descripcion,Imagen=:Imagen  WHERE idObituarios=:idObituarios');
+			$actualizar->bindValue('idObituarios',$obituario->getidObituarios());
+			$actualizar->bindValue('Titulo',$obituario->getTitulo());
+			$actualizar->bindValue('Descripcion',$obituario->getDescripcion());
+			$actualizar->bindValue('Imagen',$obituario->getImagen());
+			$actualizar->execute();
+		}
+		public function actualizarAtaud($ataud){
+			$db=Db::conectar();
+			$actualizar=$db->prepare('UPDATE ataudes SET Titulo=:Titulo, Descripcion=:Descripcion,Imagen=:Imagen,Precio=:Precio  WHERE idAtaudes=:idAtaudes');
+			$actualizar->bindValue('idAtaudes',$ataud->getidAtaudes());
+			$actualizar->bindValue('Titulo',$ataud->getTitulo());
+			$actualizar->bindValue('Descripcion',$ataud->getDescripcion());
+			$actualizar->bindValue('Imagen',$ataud->getImagen());
+			$actualizar->bindValue('Precio',$ataud->getPrecio());
 			$actualizar->execute();
 		}
 		public function obtenerServicio($idServicio){
@@ -109,5 +140,36 @@ require_once('conexion.php');
 				$myServicio->setidUsuarios($servicio['Usuarios_idUsuarios']);
 			}
 			return $myServicio;
+		}
+		public function obtenerObituario($idObituarios){
+			$db=Db::conectar();
+			$select=$db->prepare('SELECT * FROM obituarios WHERE idObituarios=:idObituarios');
+			$select->bindValue('idObituarios',$idObituarios);
+			$select->execute();
+			$myObituario= new Obituario();
+			foreach($select->fetchAll() as $obituario){
+				$myObituario->setidObituarios($obituario['idObituarios']);
+				$myObituario->setTitulo($obituario['Titulo']);
+				$myObituario->setDescripcion($obituario['Descripcion']);
+				$myObituario->setImagen($obituario['Imagen']);
+				$myObituario->setidUsuarios($obituario['Usuarios_idUsuarios']);
+			}
+			return $myObituario;
+		}
+		public function obtenerAtaud($idAtaudes){
+			$db=Db::conectar();
+			$select=$db->prepare('SELECT * FROM ataudes WHERE idAtaudes=:idAtaudes');
+			$select->bindValue('idAtaudes',$idAtaudes);
+			$select->execute();
+			$myAtaud= new Ataud();
+			foreach($select->fetchAll() as $ataud){
+				$myAtaud->setidAtaudes($ataud['idAtaudes']);
+				$myAtaud->setTitulo($ataud['Titulo']);
+				$myAtaud->setDescripcion($ataud['Descripcion']);
+				$myAtaud->setImagen($ataud['Imagen']);
+				$myAtaud->setPrecio($ataud['Precio']);
+				$myAtaud->setidUsuarios($ataud['Usuarios_idUsuarios']);
+			}
+			return $myAtaud;
 		}
 	}

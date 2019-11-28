@@ -48,7 +48,28 @@
           Interior: Tapizado en color crema con un volante cubre-difunto y un cojín suelto.
       "
       );
-
+      require_once("admon/crud/crud.php");
+      require_once('admon/Modelos/ataud.php');
+      $crud = new Crud();
+      $ataud = new Ataud();
+      $listaAtaudes = [];
+      $listaAtaudes = $crud->mostrarAtaudes();
+      if(count($listaAtaudes)==0){
+        echo "         Ningun Ataud registrado";
+      }
+      foreach($listaAtaudes as $ataud){
+        echo " <div class='col-md-4 mb-5'>";
+        echo " <div class='card'>";
+        echo "<img src=admon/img/Ataudes/" . $ataud->getImagen() . " alt='imagen'card-img-top'>";
+        echo "<div class='card-body'>";
+        echo "<H5 class='card-title'>" . $ataud->getTitulo() . "</H5>";
+        echo "<p>" . $ataud->getDescripcion() . "</p>";
+        echo "<p><strong>" . $ataud->getPrecio() . "</strong></p>";
+        echo "</div>";
+        echo "</div>";
+        echo "</div>";
+      }
+      /*
       for ($i = 0; $i < 4; $i++) {
         echo " <div class='col-md-4 mb-5'>";
         echo " <div class='card'>";
@@ -59,7 +80,8 @@
         echo "</div>";
         echo "</div>";
         echo "</div>";
-      } ?>
+      }
+      */ ?>
     </div>
   </div>
 </section>

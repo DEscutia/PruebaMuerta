@@ -4,10 +4,10 @@ if (!isset($_SESSION['ena'])) {
     header('location:index.php');
 }
 require_once($_SERVER['DOCUMENT_ROOT'] . '/PruebaMuerta/admon/crud/crud.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . '/PruebaMuerta/admon/Modelos/servicios.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/PruebaMuerta/admon/Modelos/ataud.php');
 $crud = new Crud();
-$Servicio = new Servicio();
-$Servicio = $crud->obtenerServicio($_GET['idServicios']);
+$ataud = new Ataud();
+$ataud = $crud->obtenerAtaud($_GET['idAtaudes']);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -61,8 +61,8 @@ $Servicio = $crud->obtenerServicio($_GET['idServicios']);
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <h6 class="dropdown-header">Servicios:</h6>
-          <a class="dropdown-item" href="ingresar.php">Insertar Servicios</a>
-          <a class="dropdown-item" href="mostrar.php">Ver los servicios</a>
+          <a class="dropdown-item" href="../vistasServ/ingresar.php">Insertar Servicios</a>
+          <a class="dropdown-item" href="../vistasServ/mostrar.php">Ver los servicios</a>
           <h6 class="dropdown-header">Obituarios:</h6>
           <a class="dropdown-item" href="../vistasObi/ingresar.php">Insertar Obituarios</a>
           <a class="dropdown-item" href="../vistasObi/mostrar.php">Ver los Obituarios</a>
@@ -92,7 +92,7 @@ $Servicio = $crud->obtenerServicio($_GET['idServicios']);
           <li class="breadcrumb-item">
             <a href="main.php">Dashboard</a>
           </li>
-          <li class="breadcrumb-item active">Servicios</li>
+          <li class="breadcrumb-item active">Ataudes</li>
         </ol>
         <!-- Page Content -->
         <div class="container d-flex justify-content-center">
@@ -100,29 +100,33 @@ $Servicio = $crud->obtenerServicio($_GET['idServicios']);
 		<table>
 		<tr>
 			<td>ID a actualizar: </td>
-			<td><input type="hidden" name="id" value='<?php echo $Servicio->getidServicios() ?>'></input><?php echo $Servicio->getidServicios() ?></td>
+			<td><input type="hidden" name="id" value='<?php echo $ataud->getidAtaudes() ?>'></input><?php echo $ataud->getidAtaudes() ?></td>
 		</tr>
 		<tr>
 			<td>Titulo: </td>
-			<td><input type="text" name="Titulo" value='<?php echo $Servicio->getTitulo() ?>'></td>
+			<td><input type="text" name="Titulo" value='<?php echo $ataud->getTitulo() ?>'></td>
     </tr>
     <tr>
       <td>Descripcion: </td>
-      <td><input type="text" name="Descripcion" value='<?php echo $Servicio->getDescripcion() ?>'></td>
+      <td><input type="text" name="Descripcion" value='<?php echo $ataud->getDescripcion() ?>'></td>
     </tr>
     <tr>
       <td>Imagen: </td>
       <td>
-        <input type="hidden" name="Imagen" value="<?php echo $Servicio->getImagen() ?>">
-		    <?php echo "<img src='../img/Servicios/" . $Servicio->getImagen() . "' height='100'>";?>
+        <input type="hidden" name="Imagen" value="<?php echo $ataud->getImagen() ?>">
+		    <?php echo "<img src='../img/Ataudes/" . $ataud->getImagen() . "' height='100'>";?>
         <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
 		    <input name="uploadedfile" type="file" /> 
       </td>
     </tr>
     <tr>
+      <td>Precio: </td>
+      <td><input type="text" name="Precio" value='<?php echo $ataud->getPrecio() ?>'></td>
+    </tr>
+    <tr>
       <td>
         <button type="submit" value="Guardar">Guardar</button>
-        <input type="hidden" name="actualizar" value="actualizar"> 
+        <input type="hidden" name="actualizarAtaud" value="actualizarAtaud"> 
       </td>
     </tr>
 		</table>

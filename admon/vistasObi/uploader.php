@@ -40,4 +40,10 @@ if (isset($_POST['insertar'])&&!$_FILES['uploadedfile']['size']==0) {
 	} else {
 		header('Location: ../main.php?msg=' . $msg);
 	}
+}else if(isset($_POST['insertar'])){
+	$obituario->setTitulo($_POST['Titulo']);
+				$obituario->setDescripcion($_POST['Descripcion']);
+				$obituario->setImagen($file_name);
+				$crud->insertarObituario($obituario);
+				header('Location: ../main.php?msg=' . "Se inserto correctamente");
 }

@@ -40,4 +40,10 @@ if (isset($_POST['insertarServicio'])&&!$_FILES['uploadedfile']['size']==0) {
 	} else {
 		header('Location: ../main.php?msg=' . $msg);
 	}
+}else if(isset($_POST['insertarServicio'])){
+	$servicio->setTitulo($_POST['Titulo']);
+				$servicio->setDescripcion($_POST['Descripcion']);
+				$servicio->setImagen($file_name);
+				$crud->insertarServicio($servicio);
+				header('Location: ../main.php?msg=' . "Se inserto correctamente");
 }

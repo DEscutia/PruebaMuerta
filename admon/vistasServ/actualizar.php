@@ -61,8 +61,8 @@ $Servicio = $crud->obtenerServicio($_GET['idServicios']);
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <h6 class="dropdown-header">Servicios:</h6>
-          <a class="dropdown-item" href="ingresar.php">Insertar Servicios</a>
-          <a class="dropdown-item" href="mostrar.php">Ver los servicios</a>
+          <a class="dropdown-item" href="../vistasServ/ingresar.php">Insertar Servicios</a>
+          <a class="dropdown-item" href="../vistasServ/mostrar.php">Ver los servicios</a>
           <h6 class="dropdown-header">Obituarios:</h6>
           <a class="dropdown-item" href="../vistasObi/ingresar.php">Insertar Obituarios</a>
           <a class="dropdown-item" href="../vistasObi/mostrar.php">Ver los Obituarios</a>
